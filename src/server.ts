@@ -56,6 +56,13 @@ export const createMcpServer = (): McpServer => {
 	let robot: Robot | null;
 	const simulatorManager = new SimctlManager();
 
+	// --- AUTO-SELECT ANDROID EMULATOR IF ONLY ONE IS RUNNING (Windows/Emulator) ---
+	const androidDevices = getConnectedDevices();
+	if (androidDevices.length === 1) {
+		robot = new AndroidRobot(androidDevices[0]);
+		trace(`Auto-selected Android emulator: ${androidDevices[0]}`);
+	}
+
 	const requireRobot = () => {
 		if (!robot) {
 			throw new ActionableError("No device selected. Use the mobile_use_device tool to select a device.");

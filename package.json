@@ -1,5 +1,5 @@
 {
-  "name": "@mobilenext/mobile-mcp",
+  "name": "@waigenie/mobile-mcp",
   "version": "0.0.12",
   "description": "Mobile MCP",
   "repository": {
@@ -11,7 +11,7 @@
   },
   "license": "Apache-2.0",
   "scripts": {
-    "build": "tsc && chmod +x lib/index.js",
+    "build": "tsc",
     "lint": "eslint .",
     "test": "nyc mocha --require ts-node/register test/*.ts",
     "watch": "tsc --watch",
@@ -22,6 +22,7 @@
     "lib"
   ],
   "dependencies": {
+    "@mobilenext/mobile-mcp": "^0.0.12",
     "@modelcontextprotocol/sdk": "^1.6.1",
     "fast-xml-parser": "^5.0.9",
     "nyc": "^17.1.0",
